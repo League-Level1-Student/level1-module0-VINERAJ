@@ -26,8 +26,8 @@ public class PhotoQuiz {
 		// 1. find an image on the internet, and put its URL in a String
 		// variable (from your browser, right click on the image, and select
 		// “Copy Image Address”)
-
-		// 2. create a variable of type "Component" that will hold your image
+String strong = "https://i0.wp.com/www.thenerddaily.com/wp-content/uploads/2018/09/Robert-Downey-Jr.jpg?fit=1000%2C742&ssl=1";
+// 2. create a variable of type "Component" that will hold your image
 
 		// 3. use the "createImage()" method below to initialize your Component
 
