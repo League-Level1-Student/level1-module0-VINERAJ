@@ -28,33 +28,46 @@ public class PhotoQuiz {
 		// “Copy Image Address”)
 String strong = "https://i0.wp.com/www.thenerddaily.com/wp-content/uploads/2018/09/Robert-Downey-Jr.jpg?fit=1000%2C742&ssl=1";
 // 2. create a variable of type "Component" that will hold your image
-
+Component comp;
 		// 3. use the "createImage()" method below to initialize your Component
-
+comp = createImage(strong);
 		// 4. add the image to the quiz window
-
+quizWindow.add(comp);
 		// 5. call the pack() method on the quiz window
-
+quizWindow.pack();
 		// 6. ask a question that relates to the image
-
+String jop = JOptionPane.showInputDialog("Did he play Sherlock Holmes?");
 		// 7. print "CORRECT" if the user gave the right answer
-
+if(jop.equalsIgnoreCase("yes")) {
+	JOptionPane.showMessageDialog(null, "CORRECT!!!");
+}
 		// 8. print "INCORRECT" if the answer is wrong
-
+else {
+	JOptionPane.showMessageDialog(null, "INCORRECT!!!");
+}
 		// 9. remove the component from the quiz window (you may not see the
 		// effect of this until step 12)
-
+quizWindow.remove(comp);
 		// 10. find another image and create it (might take more than one line
 		// of code)
-
+strong = "https://www.thesun.co.uk/wp-content/uploads/2019/03/NINTCHDBPICT0004777086082.jpg";
+Component cooomp;
+cooomp=createImage(strong);
 		// 11. add the second image to the quiz window
-
+quizWindow.add(cooomp);
 		// 12. pack the quiz window
-
+quizWindow.pack();
 		// 13. ask another question
-
+String quoston = JOptionPane.showInputDialog("Which actor plays Gollum?");
 		// 14+ check answer, say if correct or incorrect, etc.
-
+if(quoston.equalsIgnoreCase("Andy Serkis")) {
+	JOptionPane.showMessageDialog(null, "CORRECT!!!");
+	quizWindow.dispose();
+}
+else {
+	JOptionPane.showMessageDialog(null, "INCORRECT!!!");
+	quizWindow.dispose();
+}
 	}
 
 	private Component createImage(String imageUrl) throws MalformedURLException {
