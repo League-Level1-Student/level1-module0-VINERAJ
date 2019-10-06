@@ -23,6 +23,7 @@ public class DrumKit implements MouseListener {
 	JLabel drumLabelWithImage;
     JLabel bassLabelWithImage;
     JLabel floorLabelWithImage;
+    JLabel cymbalLabelWithImage;
 	public void run() throws MalformedURLException {
 
 		// 1. Make a JFrame variable and initialize it using "new JFrame()"
@@ -62,18 +63,25 @@ bassLabelWithImage = createLabelImage(bassDrumImage);
 p.add(bassLabelWithImage);
 p.setLayout(new GridLayout());
 j.pack();
+bassLabelWithImage.addMouseListener(this);
 String floorImage = "flooor.jpeg";
 floorLabelWithImage = createLabelImage(floorImage);
-p.add(bassLabelWithImage);
+p.add(floorLabelWithImage);
 p.setLayout(new GridLayout());
 j.pack();
-
+floorLabelWithImage.addMouseListener(this);
+String cymbalImage = "cymbaal.jpeg";
+cymbalLabelWithImage = createLabelImage(cymbalImage);
+p.add(cymbalLabelWithImage);
+p.setLayout(new GridLayout());
+j.pack();
+cymbalLabelWithImage.addMouseListener(this);
 	}
 
 	public void mouseClicked(MouseEvent e) {
 		// 14. Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
-
+System.out.println("mouse clicked");
 		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
 														// clicked on
@@ -83,10 +91,20 @@ j.pack();
 		// leagueofamazing/code4life.
 
 		// 16. If they clicked on the drumImage...
-
+if(drumLabelWithImage==drumClicked) {
+	playSound("drum.wav");
+}
 		// 17. ...use the playSound method to play a drum sound. Test to see if
 		// it works
-
+if(bassLabelWithImage==drumClicked) {
+	playSound("bassDrum.wav");
+}
+if(cymbalLabelWithImage==drumClicked) {
+	playSound("bigHit.wav");
+}
+if(floorLabelWithImage==drumClicked) {
+	playSound("flooooor.wav");
+}
 	}
 
 	private JLabel createLabelImage(String fileName) throws MalformedURLException {
