@@ -16,8 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class BodyPartQuiz {
-int p = 1;
-String person;
+	int p = 1;
+	String person;
+	int scor;
 	// You can use the celebrity photos we have placed in the default java
 	// package,or if you prefer, get celebrity photos from the Internet,
 	// place them in the default package, and change the names below.
@@ -43,7 +44,7 @@ String person;
 
 		// 3. Change the size of the window so that you can only see part of the
 		// image.
-		window.setSize(100,100);
+		window.setSize(100, 100);
 
 		showNextImage();
 
@@ -52,38 +53,44 @@ String person;
 	private void startQuiz() {
 
 		// 1. Make an int variable to hold the score.
-int scor;
-		// 2. Set the size of the window in the initializeGui() method 
+
+		// 2. Set the size of the window in the initializeGui() method
 
 		// 4. Ask the user who this person is and store their answer
-		String guess = JOptionPane.showInputDialog("who is this?");
+		for (int i = 0; i < 4; i++) {
+			String guess = JOptionPane.showInputDialog("who is this?");
 
-		// 5. Check their answer. If they guessed correctly:
-		// -- Tell them they are right and increase the score by 1
-if(p%4==1) {
-	person = "Arnold Schwarzenegger";
-}
-else if(p%4==2) {
-	person = "Leonardo DiCaprio";
-}
-else if(p%4==3) {
-	person = "Morgan Freeman";
-}
-else {
-	person = "Jack Black";
-}
-if(guess.equalsIgnoreCase(person));
-	
-		// 6. Otherwise:
-		// -- Tell them they are wrong and who the person is
-
-		// 7. Use the showNextImage() method below to get the next image
-		showNextImage();
-
+			// 5. Check their answer. If they guessed correctly:
+			// -- Tell them they are right and increase the score by 1
+			if (p % 4 == 1) {
+				person = "Arnold Schwarzenegger";
+			} else if (p % 4 == 2) {
+				person = "Leonardo DiCaprio";
+			} else if (p % 4 == 3) {
+				person = "Morgan Freeman";
+			} else {
+				person = "Jack Black";
+			}
+			if (guess.equalsIgnoreCase(person)) {
+				JOptionPane.showMessageDialog(null, "YOU ARE CORRECT!!!");
+				scor += 1;
+				p += 1;
+			}
+			// 6. Otherwise:
+			// -- Tell them they are wrong and who the person is
+			else {
+				JOptionPane.showMessageDialog(null, "YOU ARE WRONG!!!");
+				JOptionPane.showMessageDialog(null, "The person is " + person + ".");
+				p += 1;
+			}
+			// 7. Use the showNextImage() method below to get the next image
+			System.out.println(i);
+			showNextImage();
+		}
 		// 8. .... repeat 4-7 for all your images.....
 
 		// 9. Show them their current score
-
+		JOptionPane.showMessageDialog(null, "Your current score is " + scor + ".");
 	}
 
 	public void showNextImage() {
@@ -115,7 +122,7 @@ if(guess.equalsIgnoreCase(person));
 	private JLabel getNextImage() {
 		if (imageIterator.hasNext())
 			return imageIterator.next();
-		System.exit(0);
+//		System.exit(0);
 		return new JLabel();
 	}
 }
