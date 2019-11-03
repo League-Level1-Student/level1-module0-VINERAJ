@@ -38,7 +38,7 @@ public void actionPerformed(ActionEvent e) {
 		JLabel lable = createLabelImage("spoopy.jpg");
 		panle.add(lable);
 		frame.pack();
-		playSound("spoopyViolin");
+		playSound("spoopyViolin.wav");
 	}
 	
 }
