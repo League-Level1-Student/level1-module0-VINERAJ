@@ -4,8 +4,10 @@ import ddf.minim.*;
   AudioSample sound;
 int xpo = 300;
 int ypo = 300;
-int s = 5;
-int s1 = 4;
+int rand = (int) random(150);
+int rando = (int) random(105);
+int s = rand;
+int s1 = rando;
 void setup(){
   backgroundImage = loadImage("pong.png");
   minim = new Minim (this);
@@ -36,6 +38,9 @@ void draw(){
   if(ypo==590){
     if(xpo==mouseX){
       s1=-s1;
+    }
+    else{
+      sound.trigger();
     }
   }
 }
